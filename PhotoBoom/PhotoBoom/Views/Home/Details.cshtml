@@ -1,0 +1,26 @@
+﻿@model PhotoBoom.Models.Image
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div style="text-align:center">
+
+    <h3>
+        <b>
+            @Html.DisplayFor(model => model.Title)
+        </b>
+    </h3>
+
+    <h5>
+      Tags: @Html.DisplayFor(model => model.Tags)
+    </h5>
+
+
+    <img src="@Url.Content(Model.ImagePath)" width="250" height="250" />
+
+
+</div>
+<p>
+    @Html.ActionLink("Delete Photo", "Delete", new { id = Model.ImageId })
+</p>

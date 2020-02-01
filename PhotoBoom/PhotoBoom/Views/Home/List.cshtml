@@ -1,0 +1,34 @@
+﻿@model IEnumerable<PhotoBoom.Models.Image>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<div style="text-align:center">
+<h2>My Photos</h2>
+<div class="row">
+    @if (Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="col-md-3 col-sm-3 col-lg-3">
+                <a href="@Url.Action("Details","Home", new { id = item.ImageId })" title="View Photo" class="links">
+                    <img src="@Url.Content(item.ImagePath)" width="200" height="200" />
+                </a>
+            </div>
+        }
+    }
+    else
+    {
+        <br />
+        <div>You don't have any photos yet :(</div>
+    }
+
+</div>
+<br />
+<div class="row">
+    <p>
+        @Html.ActionLink("Add Photo", "Create")
+    </p>
+</div>
+</div>
